@@ -86,7 +86,9 @@ Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
    ```bash
    git clone https://github.com/username-kamu/hotel-booking-cancellation.git
    cd hotel-booking-cancellation
-
-pip install -r requirements.txt
-jupyter notebook hotel_booking_cancellation_analysis.ipynb
-
+2. Instal dependensi yang diperlukan:
+   ```bash
+   pip install -r requirements.txt
+3. Jalankan notebook untuk analisis:
+    ```bash
+    jupyter notebook hotel_booking_cancellation_analysis.ipynb
