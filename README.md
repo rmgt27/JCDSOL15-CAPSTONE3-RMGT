@@ -1,41 +1,92 @@
 # JCDSOL15-CAPSTONE3-RMGT
-JCDSOL15-CAPSTONE2-RMGT-Dataset Hotel Booking Demand
+# Prediksi Pembatalan Reservasi Hotel
 
-Hotel Booking Cancellation Prediction
+Proyek ini bertujuan untuk memprediksi pembatalan reservasi hotel menggunakan model pembelajaran mesin berdasarkan berbagai fitur pemesanan pelanggan. Dengan membangun model prediksi, diharapkan dapat membantu manajer hotel mengurangi potensi kerugian pendapatan akibat pembatalan mendadak dan mengoptimalkan pemanfaatan kamar.
 
-Deskripsi Proyek
+## Daftar Isi
+- [Ringkasan](#ringkasan)
+- [Dataset](#dataset)
+- [Alur Pembelajaran Mesin](#alur-pembelajaran-mesin)
+- [Rekayasa Fitur](#rekayasa-fitur)
+- [Evaluasi Model](#evaluasi-model)
+- [Kesimpulan dan Rekomendasi](#kesimpulan-dan-rekomendasi)
+- [Instalasi](#instalasi)
+- [Penggunaan](#penggunaan)
+- [Lisensi](#lisensi)
 
-Proyek ini bertujuan untuk memprediksi apakah suatu pemesanan hotel akan dibatalkan atau tidak berdasarkan data historis pemesanan hotel. Proyek ini menggunakan teknik machine learning untuk menganalisis data dan membuat prediksi yang akurat.
+## Ringkasan
+Proyek **Prediksi Pembatalan Reservasi Hotel** berfokus pada memprediksi pembatalan berdasarkan fitur-fitur seperti negara asal pelanggan, segmen pasar, jumlah pembatalan sebelumnya, jenis deposit, dan detail pemesanan lainnya. Model ini dapat membantu mengurangi risiko overbooking dan memaksimalkan pendapatan hotel.
 
-Dataset
+### Pernyataan Masalah
+Tingkat pembatalan reservasi yang tinggi di hotel sering menyebabkan kamar kosong dan pendapatan yang hilang. Memprediksi pembatalan dapat membantu manajemen hotel mengambil langkah-langkah pencegahan, seperti menawarkan kembali kamar atau menyesuaikan kebijakan untuk pelanggan berisiko tinggi.
 
-Dataset yang digunakan dalam proyek ini adalah data_hotel_booking_demand.csv, yang berisi informasi pemesanan hotel, termasuk tanggal pemesanan, tanggal check-in, tanggal check-out, jenis kamar, dan lain-lain.
+## Dataset
+Dataset yang digunakan untuk proyek ini berjudul **data_hotel_booking_demand.csv**. Dataset ini berisi informasi pemesanan seperti:
+- `country`: Negara asal tamu.
+- `market_segment`: Segmen pasar pemesanan (misalnya, Online TA, Direct, dll.).
+- `previous_cancellations`: Jumlah pembatalan sebelumnya oleh pelanggan.
+- `deposit_type`: Jenis deposit untuk pemesanan (misalnya, Non-Refundable).
+- `is_canceled`: Variabel target (1 = pemesanan dibatalkan, 0 = pemesanan tidak dibatalkan).
 
-Metode
+Dataset ini terdiri dari 83.573 baris dan 11 fitur, termasuk data kategorikal dan numerik.
 
-Proyek ini menggunakan teknik machine learning, yaitu Random Forest, AdaBoost, dan XGBoost, untuk menganalisis data dan membuat prediksi. Proyek ini juga menggunakan teknik feature engineering untuk memperbaiki kinerja model.
+## Alur Pembelajaran Mesin
 
-Hasil
+1. **Formulasi Masalah dan Pemahaman Data**  
+   Langkah awal melibatkan pemahaman konteks pembatalan pemesanan hotel dan merumuskan masalah sebagai masalah klasifikasi.
 
-Hasil proyek ini adalah model prediksi yang akurat yang dapat memprediksi apakah suatu pemesanan hotel akan dibatalkan atau tidak. Model ini dapat membantu hotel untuk mengurangi risiko kehilangan pendapatan akibat pembatalan pemesanan.
+2. **Analisis Data Eksploratif (EDA)**  
+   Menganalisis dataset, termasuk distribusi fitur dan korelasi antara fitur dan variabel target (`is_canceled`).
 
-Rekomendasi
+3. **Rekayasa Fitur**  
+   Penanganan nilai yang hilang, encoding variabel kategorikal, dan transformasi fitur untuk persiapan pelatihan model.
 
-Untuk meningkatkan kinerja model dan meningkatkan akurasi prediksi F1, beberapa rekomendasi berikut dapat dilakukan:
+4. **Pelatihan Model**  
+   Beberapa model diuji, termasuk:
+   - Random Forest
+   - AdaBoost
+   - XGBoost
 
-Menambahkan Fitur Baru
-Menguji Algoritma ML Lain
-Menggunakan Teknik Ensemble
-Menganalisis Data yang Salah
-Menggunakan Data yang Lebih Baik
-Kesimpulan
+5. **Evaluasi dan Seleksi Model**  
+   Kinerja model dievaluasi menggunakan metrik seperti:
+   - F1-Score
+   - Precision
+   - Recall
+   - ROC AUC
 
-Proyek ini berhasil membuat model prediksi yang akurat untuk memprediksi apakah suatu pemesanan hotel akan dibatalkan atau tidak. Model ini dapat membantu hotel untuk mengurangi risiko kehilangan pendapatan akibat pembatalan pemesanan.
+6. **Kesimpulan dan Rekomendasi**  
+   Wawasan akhir dan saran untuk manajemen hotel berdasarkan hasil prediksi model.
 
-Referensi
+## Rekayasa Fitur
 
-National Center for Biotechnology Information (NCBI). (2020). COVID-19 and the hotel industry.
-Jiang, Y., et al. (2019). The impact of COVID-19 on the hotel industry. Journal of Hospitality and Tourism Research, 43(5), 631-644.
-Lisensi
+Rekayasa fitur melibatkan imputasi nilai yang hilang, encoding variabel kategorikal (menggunakan One-Hot Encoding dan Binary Encoding), dan transformasi fitur untuk pelatihan model. Fitur kategorikal seperti `country` dan `market_segment` diencode, sedangkan fitur numerik seperti `previous_cancellations` digunakan secara langsung.
 
-Proyek ini dilisensikan di bawah lisensi MIT.
+## Evaluasi Model
+
+Setelah menguji beberapa algoritma pembelajaran mesin, **Random Forest Classifier** mencapai performa terbaik dengan metrik sebagai berikut:
+- **F1-Score:** 0.73
+- **Precision:** 0.64
+- **Recall:** 0.85
+- **ROC AUC:** 0.79
+
+Model kemudian dituning lebih lanjut menggunakan **Optuna** untuk optimasi hyperparameter, menghasilkan peningkatan performa.
+
+## Kesimpulan dan Rekomendasi
+
+Model Random Forest secara efektif memprediksi pembatalan reservasi dengan nilai recall yang tinggi, yang berarti mampu mengidentifikasi sebagian besar pembatalan potensial. Kami merekomendasikan langkah-langkah berikut berdasarkan prediksi model:
+1. **Perbaiki kebijakan deposit** untuk pelanggan berisiko tinggi guna mengurangi pembatalan.
+2. **Kirim email konfirmasi** kepada tamu yang diprediksi akan membatalkan untuk mendorong mereka mempertahankan reservasi.
+3. **Publikasikan ulang kamar kosong** lebih awal jika pembatalan diprediksi.
+
+## Instalasi
+
+Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
+
+1. Clone repository:
+   ```bash
+   git clone https://github.com/username-kamu/hotel-booking-cancellation.git
+   cd hotel-booking-cancellation
+
+pip install -r requirements.txt
+jupyter notebook hotel_booking_cancellation_analysis.ipynb
+
