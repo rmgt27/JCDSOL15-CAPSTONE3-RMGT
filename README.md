@@ -92,3 +92,11 @@ Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
 3. Jalankan notebook untuk analisis:
     ```bash
     jupyter notebook hotel_booking_cancellation_analysis.ipynb
+
+## Penggunaan
+
+Anda dapat memodifikasi notebook untuk mengeksplorasi model yang berbeda atau menggunakan dataset yang disediakan untuk mencoba pendekatan lain. Notebook ini mencakup penjelasan rinci untuk setiap langkah, mulai dari preprocessing data hingga evaluasi model.
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file LICENSE untuk detail lebih lanjut.
