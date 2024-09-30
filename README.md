@@ -100,8 +100,3 @@ Anda dapat memodifikasi notebook untuk mengeksplorasi model yang berbeda atau me
 ## Lisensi
 
 Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file LICENSE untuk detail lebih lanjut.
-
-git add .
-git commit -m "Initial commit"
-git push origin main
-
